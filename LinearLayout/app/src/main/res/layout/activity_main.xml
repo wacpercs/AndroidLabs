@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Первый компонент: хардкодная строка с именем, фамилией и номером группы -->
+    <TextView
+        android:id="@+id/tvStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Никитин Никита ПИ-251"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Второй компонент: хардкодное четверостишье на русском языке -->
+    <TextView
+        android:id="@+id/tvPoemRu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Если б мишки были пчелами,\nТо они бы нипочём\nНикогда и не подумали\nТак высоко строить дом!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Третий компонент: четверостишье на английском языке из строковых ресурсов -->
+    <TextView
+        android:id="@+id/tvPoemEn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bears_poem_en"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</LinearLayout>
