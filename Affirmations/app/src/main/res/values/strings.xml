@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Affirmations</string>
+
+    <!-- Affirmation strings -->
+    <string name="affirmation1">I am strong.</string>
+    <string name="affirmation2">I believe in myself.</string>
+    <string name="affirmation3">Each day is a new opportunity to grow and be a better version of myself.</string>
+    <string name="affirmation4">Every challenge in my life is an opportunity to learn from.</string>
+    <string name="affirmation5">I have so much to be grateful for.</string>
+    <string name="affirmation6">Good things are coming to me.</string>
+    <string name="affirmation7">I can achieve anything I set my mind to.</string>
+    <string name="affirmation8">I am proud of myself.</string>
+    <string name="affirmation9">I have the power to create the life I desire.</string>
+    <string name="affirmation10">I am capable of overcoming any obstacles.</string>
+
+    <!-- Topics (Листинг 5.33) -->
+    <string name="architecture">Architecture</string>
+    <string name="crafts">Crafts</string>
+    <string name="business">Business</string>
+    <string name="culinary">Culinary</string>
+    <string name="design">Design</string>
+    <string name="fashion">Fashion</string>
+    <string name="film">Film</string>
+    <string name="gaming">Gaming</string>
+    <string name="drawing">Drawing</string>
+    <string name="lifestyle">Lifestyle</string>
+    <string name="music">Music</string>
+    <string name="painting">Painting</string>
+    <string name="photography">Photography</string>
+    <string name="tech">Tech</string>
+</resources>

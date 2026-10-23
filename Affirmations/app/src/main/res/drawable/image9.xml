@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Emerald Hills -->
+    <path
+        android:fillColor="#FF2E7D32"
+        android:pathData="M0,0h400v200h-400z" />
+    <path
+        android:fillColor="#FFA5D6A7"
+        android:pathData="M180,60m-24,0a24,24 0 1,1 48,0a24,24 0 1,1 -48,0" />
+    <path
+        android:fillColor="#FF1B5E20"
+        android:pathData="M0,200 Q200,80 400,200 Z" />
+</vector>

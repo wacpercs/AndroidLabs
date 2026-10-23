@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Red Canyon -->
+    <path
+        android:fillColor="#FFD84315"
+        android:pathData="M0,0h400v200h-400z" />
+    <path
+        android:fillColor="#FFFFAB91"
+        android:pathData="M300,70m-22,0a22,22 0 1,1 44,0a22,22 0 1,1 -44,0" />
+    <path
+        android:fillColor="#FFBF360C"
+        android:pathData="M0,200 L120,80 L220,160 L320,70 L400,200 Z" />
+</vector>

@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Sunset Sky -->
+    <path
+        android:fillColor="#FFE65100"
+        android:pathData="M0,0h400v200h-400z" />
+    <!-- Sun -->
+    <path
+        android:fillColor="#FFFFEE58"
+        android:pathData="M140,110m-35,0a35,35 0 1,1 70,0a35,35 0 1,1 -70,0" />
+    <!-- Ocean / Water -->
+    <path
+        android:fillColor="#FF0288D1"
+        android:pathData="M0,130h400v70h-400z" />
+    <!-- Foreground Shore -->
+    <path
+        android:fillColor="#FF263238"
+        android:pathData="M0,200 L160,150 L400,200 Z" />
+</vector>

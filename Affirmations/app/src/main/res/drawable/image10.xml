@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Twilight Sky -->
+    <path
+        android:fillColor="#FF37474F"
+        android:pathData="M0,0h400v200h-400z" />
+    <path
+        android:fillColor="#FFFFD54F"
+        android:pathData="M160,80m-26,0a26,26 0 1,1 52,0a26,26 0 1,1 -52,0" />
+    <path
+        android:fillColor="#FF263238"
+        android:pathData="M0,200 L140,110 L280,200 L340,130 L400,200 Z" />
+</vector>

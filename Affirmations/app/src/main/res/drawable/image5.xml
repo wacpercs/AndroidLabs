@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Golden field -->
+    <path
+        android:fillColor="#FFFBC02D"
+        android:pathData="M0,0h400v200h-400z" />
+    <path
+        android:fillColor="#FFF57F17"
+        android:pathData="M180,70m-25,0a25,25 0 1,1 50,0a25,25 0 1,1 -50,0" />
+    <path
+        android:fillColor="#FF827717"
+        android:pathData="M0,200 Q150,110 400,200 Z" />
+    <path
+        android:fillColor="#FF558B2F"
+        android:pathData="M0,200 Q280,140 400,170 L400,200 Z" />
+</vector>

@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Dawn / Pink sky -->
+    <path
+        android:fillColor="#FFAD1457"
+        android:pathData="M0,0h400v200h-400z" />
+    <path
+        android:fillColor="#FFFF80AB"
+        android:pathData="M240,80m-28,0a28,28 0 1,1 56,0a28,28 0 1,1 -56,0" />
+    <path
+        android:fillColor="#FF6A1B9A"
+        android:pathData="M0,200 L110,120 L220,200 Z" />
+    <path
+        android:fillColor="#FF4A148C"
+        android:pathData="M160,200 L270,100 L400,200 Z" />
+</vector>

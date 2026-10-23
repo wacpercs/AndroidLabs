@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="200dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+    <!-- Forest Sky -->
+    <path
+        android:fillColor="#FF00897B"
+        android:pathData="M0,0h400v200h-400z" />
+    <!-- Distant hills -->
+    <path
+        android:fillColor="#FF004D40"
+        android:pathData="M0,200 L100,100 L240,200 Z" />
+    <path
+        android:fillColor="#FF2E7D32"
+        android:pathData="M180,200 L300,80 L400,200 Z" />
+    <!-- Foreground Trees -->
+    <path
+        android:fillColor="#FF1B5E20"
+        android:pathData="M0,200 L80,140 L160,200 L240,130 L320,200 L400,150 L400,200 Z" />
+</vector>
