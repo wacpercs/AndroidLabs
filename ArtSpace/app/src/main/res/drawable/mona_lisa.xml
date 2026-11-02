@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="400dp"
+    android:viewportWidth="300"
+    android:viewportHeight="400">
+    <!-- Background wall / landscape -->
+    <path
+        android:fillColor="#FF2F3E34"
+        android:pathData="M0,0h300v400h-300z" />
+    <path
+        android:fillColor="#FF4A5D4E"
+        android:pathData="M0,160 Q150,110 300,160 L300,240 L0,240 Z" />
+    <!-- Distant water & bridge -->
+    <path
+        android:fillColor="#FF6B8E7B"
+        android:pathData="M0,170 Q150,150 300,170 L300,200 L0,200 Z" />
+    <!-- Balcony railing -->
+    <path
+        android:fillColor="#FF262F28"
+        android:pathData="M0,230h300v20h-300z" />
+    <!-- Mona Lisa Figure Silhouette & Dress -->
+    <path
+        android:fillColor="#FF1C1A17"
+        android:pathData="M70,400 C70,300 90,240 120,220 C130,210 170,210 180,220 C210,240 230,300 230,400 Z" />
+    <!-- Shawl / Veil -->
+    <path
+        android:fillColor="#FF332E27"
+        android:pathData="M95,220 C95,140 100,110 150,110 C200,110 205,140 205,220 Z" />
+    <!-- Face -->
+    <path
+        android:fillColor="#FFD7B899"
+        android:pathData="M120,175 C120,135 180,135 180,175 C180,210 120,210 120,175 Z" />
+    <!-- Hair -->
+    <path
+        android:fillColor="#FF211C18"
+        android:pathData="M115,140 C115,115 185,115 185,140 C185,185 178,215 178,240 C170,235 130,235 122,240 C122,215 115,185 115,140 Z" />
+    <!-- Hands crossed -->
+    <path
+        android:fillColor="#FFD7B899"
+        android:pathData="M110,340 C120,320 180,320 190,340 C185,365 115,365 110,340 Z" />
+</vector>

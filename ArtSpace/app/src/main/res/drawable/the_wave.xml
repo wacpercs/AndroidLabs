@@ -1,0 +1,42 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="400dp"
+    android:viewportWidth="300"
+    android:viewportHeight="400">
+    <!-- Grey-beige sky -->
+    <path
+        android:fillColor="#FFE8E2D5"
+        android:pathData="M0,0h300v400h-300z" />
+    <!-- Distant Mount Fuji -->
+    <path
+        android:fillColor="#FF283593"
+        android:pathData="M115,280 L140,230 L165,280 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M130,250 L140,230 L150,250 Z" />
+    <!-- Distant Sea Surface -->
+    <path
+        android:fillColor="#FF1A365D"
+        android:pathData="M0,270 Q150,250 300,270 L300,400 L0,400 Z" />
+    <!-- Great Wave Body Deep Indigo -->
+    <path
+        android:fillColor="#FF0D233A"
+        android:pathData="M0,400 L0,220 C40,220 80,180 120,130 C160,80 210,60 230,110 C210,140 180,150 160,180 C130,230 180,260 300,260 L300,400 Z" />
+    <path
+        android:fillColor="#FF2B6CB0"
+        android:pathData="M0,320 C60,320 100,260 140,210 C180,160 210,140 220,130 C200,160 170,170 150,200 C120,250 150,290 300,290 L300,400 L0,400 Z" />
+    <!-- Wave Claws & Foam White -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M120,125 C140,90 180,60 220,70 C240,75 250,95 235,115 C220,135 190,140 170,170 C155,190 145,210 135,210 C125,210 120,160 120,125 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M230,70 C240,60 245,70 235,80 M245,85 C255,80 260,90 250,95 M225,100 C235,100 240,110 230,115" />
+    <!-- Foreground Lower Wave -->
+    <path
+        android:fillColor="#FF1A365D"
+        android:pathData="M0,400 L0,330 Q80,310 140,360 Q220,330 300,380 L300,400 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M0,330 Q80,305 140,355 L135,365 Q75,315 0,340 Z" />
+</vector>

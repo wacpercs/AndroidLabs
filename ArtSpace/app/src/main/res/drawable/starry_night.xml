@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="400dp"
+    android:viewportWidth="300"
+    android:viewportHeight="400">
+    <!-- Deep night sky -->
+    <path
+        android:fillColor="#FF0D2B45"
+        android:pathData="M0,0h300v400h-300z" />
+    <!-- Swirling Sky Currents -->
+    <path
+        android:fillColor="#FF203C56"
+        android:pathData="M0,80 Q100,40 180,90 T300,60 L300,180 Q200,120 120,180 T0,140 Z" />
+    <path
+        android:fillColor="#FF547A9A"
+        android:pathData="M30,110 Q120,70 190,120 T280,100 L270,120 Q180,100 110,130 Z" />
+    <!-- Crescent Moon -->
+    <path
+        android:fillColor="#FFF4D06F"
+        android:pathData="M240,40m-24,0a24,24 0 1,1 48,0a24,24 0 1,1 -48,0" />
+    <path
+        android:fillColor="#FF0D2B45"
+        android:pathData="M232,36m-20,0a20,20 0 1,1 40,0a20,20 0 1,1 -40,0" />
+    <!-- Stars -->
+    <path
+        android:fillColor="#FFFFE74C"
+        android:pathData="M70,50m-12,0a12,12 0 1,1 24,0a12,12 0 1,1 -24,0 M150,40m-9,0a9,9 0 1,1 18,0a9,9 0 1,1 -18,0 M200,85m-10,0a10,10 0 1,1 20,0a10,10 0 1,1 -20,0 M60,130m-8,0a8,8 0 1,1 16,0a8,8 0 1,1 -16,0" />
+    <!-- Distant Hills -->
+    <path
+        android:fillColor="#FF143642"
+        android:pathData="M0,260 Q100,220 200,250 T300,240 L300,400 L0,400 Z" />
+    <!-- Village Silhouettes -->
+    <path
+        android:fillColor="#FF0F1F2C"
+        android:pathData="M110,400 L110,320 L130,300 L150,320 L150,400 M170,400 L170,330 L185,315 L200,330 L200,400 M210,400 L210,340 L230,340 L230,400 Z" />
+    <!-- Church Steeple -->
+    <path
+        android:fillColor="#FF0F1F2C"
+        android:pathData="M165,340 L172,250 L180,340 Z" />
+    <!-- Cypress Tree Foreground Silhouette -->
+    <path
+        android:fillColor="#FF0A130C"
+        android:pathData="M0,400 L20,400 C40,360 45,280 40,210 C35,160 50,110 30,80 C20,110 25,170 15,230 C10,270 0,330 0,400 Z" />
+</vector>
