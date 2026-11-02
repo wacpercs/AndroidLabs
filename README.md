@@ -12,6 +12,52 @@
 | **№ 1** | **LinearLayout** | [`LinearLayout/`](LinearLayout) | Вертикальная линейная компоновка (`LinearLayout`) с компонентами `TextView` (данные студента, четверостишье на русском и английском). |
 | **№ 1** | **Components** | [`Components/`](Components) | Работа с компонентами `EditText`, `ImageView` и `Button` («ОК») в вертикальном `LinearLayout`. |
 | **№ 4** | **Affirmations** | [`Affirmations/`](Affirmations) | Создание списков в **Jetpack Compose**: `LazyColumn` (практическая часть) и двухколоночная сетка `LazyVerticalGrid` (контрольное задание: Topics). |
+| **№ 5** | **TipTime** | [`TipTime/`](TipTime) | Взаимодействие с UI и состоянием в **Jetpack Compose**: калькулятор чаевых с поднятием состояния, полями ввода с иконками, свитчем округления и тестами (Unit + UI). |
+| **№ 5** | **ArtSpace** | [`ArtSpace/`](ArtSpace) | Интерактивная галерея произведений искусств в **Jetpack Compose**: переключение картин через `when`, кнопки «Previous»/«Next», поддержка широкого/альбомного экрана. |
+
+---
+
+## Лабораторная работа № 5: Взаимодействие с UI и состоянием. Тесты
+
+### 1. Проект "TipTime" (Калькулятор чаевых)
+- **Цель**: Изучить работу с состояниями (`remember`, `mutableStateOf`), поднятие состояния (State Hoisting), форматирование валюты и автоматизированное тестирование.
+- **Проект**: [`TipTime/`](TipTime)
+- **Выполненные требования**:
+  1. `calculateTip(amount, tipPercent, roundUp)`: функция вычисления суммы чаевых с поддержкой округления (`kotlin.math.ceil`), аннотированная `@VisibleForTesting`.
+  2. `EditNumberField`: универсальное текстовое поле ввода чисел с иконкой и настройками клавиатуры:
+     - Поле «Bill Amount» с иконкой банкноты и действием `ImeAction.Next`.
+     - Поле «Tip Percentage» с иконкой процента и действием `ImeAction.Done`.
+  3. `RoundTheTipRow`: строка с переключателем `Switch` («Round up tip?») для активации округления чаевых в большую сторону.
+  4. `TipTimeLayout`: корневой макет со скроллингом `verticalScroll` и безопасными отступами `safeDrawingPadding`.
+- **Тестирование**:
+  - **Unit-тесты (JVM)**: [`TipCalculatorTests.kt`](TipTime/app/src/test/java/com/example/tiptime/TipCalculatorTests.kt):
+    - `calculateTip_20PercentNoRoundup`: проверка расчета 20% без округления.
+    - `calculateTip_20PercentRoundup`: проверка расчета с округлением.
+  - **UI-тесты (Compose Test Rule)**: [`TipUITests.kt`](TipTime/app/src/androidTest/java/com/example/tiptime/TipUITests.kt):
+    - `calculate_20_percent_tip`: ввод суммы "10", процентов "20" и проверка отображения строки `Tip Amount: $2.00`.
+- **Сборка и запуск тестов**:
+  ```powershell
+  cd TipTime
+  .\gradlew.bat assembleDebug
+  .\gradlew.bat testDebugUnitTest
+  ```
+
+---
+
+### 2. Проект "ArtSpace" (Галерея искусств)
+- **Цель**: Реализация динамического переключения UI на основе внутреннего состояния с использованием конструкции `when`, адаптивный макет для поддержки широкого экрана (Landscape).
+- **Проект**: [`ArtSpace/`](ArtSpace)
+- **Выполненные требования**:
+  1. `ArtworkWall`: картина в рамке `Surface` с белым фоном, рамкой и тенью `shadow(8.dp)`.
+  2. `ArtworkDescriptor`: карточка с названием картины в стиле `headlineSmall` (жирный) и автором со годом в стиле `bodyMedium`.
+  3. `NavigationButtons`: две кнопки «Previous» и «Next» для циклического перелистывания галереи.
+  4. Переключение через `when`: переход между шедеврами (Мона Лиза, Звёздная ночь, Крик, Большая волна в Канагаве).
+  5. **Поддержка широкого экрана (Landscape)**: адаптивный макет через `BoxWithConstraints` (в альбомной ориентации — двухколоночный макет: картина слева, описание и кнопки справа; в портретной ориентации — вертикальный макет со скроллингом).
+- **Сборка**:
+  ```powershell
+  cd ArtSpace
+  .\gradlew.bat assembleDebug
+  ```
 
 ---
 
@@ -19,63 +65,17 @@
 
 - **Цель**: Изучить возможности создания производительных прокручиваемых списков и сеток с ленивой загрузкой (`LazyColumn`, `LazyVerticalGrid`) в Jetpack Compose с использованием Material 3.
 - **Проект**: [`Affirmations/`](Affirmations)
-- **Методические указания**: [`Лабораторная работа № 4.pdf`](Лабораторная%20работа%20№%204.pdf)
-
-### 1. Практическая часть (Affirmations)
-- **Модель данных**: [`Affirmation`](Affirmations/app/src/main/java/com/example/affirmations/model/Affirmation.kt) — класс данных со строковым ресурсом (`@StringRes`) и ресурсом изображения (`@DrawableRes`).
-- **Источник данных**: [`Datasource`](Affirmations/app/src/main/java/com/example/affirmations/data/Datasource.kt) — список из 10 мотивирующих утверждений.
-- **Компоненты интерфейса**:
-  - `AffirmationCard`: карточка `Card` с изображением `Image` (`height(194.dp)`, `ContentScale.Crop`) и текстом `Text` (`MaterialTheme.typography.headlineSmall`, отступ `16.dp`).
-  - `AffirmationList`: вертикальный список на базе `LazyColumn` с элементами через `items()` и отступами `8.dp`.
-  - `AffirmationsApp`: корневой компонент с безопасными системными отступами (`WindowInsets.safeDrawing`).
-
-### 2. Контрольное задание для самопроверки (Topics Grid)
-- **Модель данных**: [`Topic`](Affirmations/app/src/main/java/com/example/affirmations/model/Topic.kt) — класс данных темы курса (`name`, `availableCourses`, `imageRes`).
-- **Источник данных**: `object DataSource` со списком из 14 категорий курсов (Architecture, Design, Culinary, Photography и др.).
-- **Компоненты интерфейса**:
-  - `TopicCard`: карточка темы с фиксированным изображением `68.dp x 68.dp`, названием (`bodyMedium`), иконкой `ic_grain` и бейджем количества курсов (`labelMedium`).
-  - `TopicGrid`: двухколоночная сетка на базе `LazyVerticalGrid(columns = GridCells.Fixed(2))` с отступами `8.dp` между карточками и краями экрана.
-
-### 3. Дополнительно:
-- В [`MainActivity.kt`](Affirmations/app/src/main/java/com/example/affirmations/MainActivity.kt) добавлен переключатель вкладок (`TabRow`), позволяющий мгновенно переключаться между обеими частями работы.
-- Предусмотрены аннотации `@Preview` для предпросмотра каждого элемента в Android Studio (вкладка Split / Разделение).
+- **Практическая часть**: `AffirmationList` на базе `LazyColumn` со списком из 10 мотивирующих утверждений и карточками `AffirmationCard`.
+- **Контрольное задание**: `TopicGrid` на базе `LazyVerticalGrid` с 2 фиксированными колонками, карточками тем курсов (68x68 dp, бейдж с иконкой `ic_grain`).
 
 ---
 
 ## Лабораторная работа № 1: Знакомство с Android Studio
 
-- **Методические указания**: [`Лабораторная работа № 1.pdf`](Лабораторная%20работа%20№%201.pdf)
-
-### 1. Проект "First App" (Часть 1)
-- **Цель**: Создание базового проекта из шаблона *Empty Activity*, знакомство со структурой проекта и запуск приложения.
-- **Исходный код**:
-  - Activity: [`MainActivity.kt`](FirstApp/app/src/main/java/com/example/firstapp/MainActivity.kt)
-  - Разметка: [`activity_main.xml`](FirstApp/app/src/main/res/layout/activity_main.xml)
-  - Ресурсы: [`strings.xml`](FirstApp/app/src/main/res/values/strings.xml), [`themes.xml`](FirstApp/app/src/main/res/values/themes.xml)
-
-### 2. Проект "LinearLayout" (Часть 2)
-- **Цель**: Освоение линейной компоновки `LinearLayout` с вертикальной ориентацией (`android:orientation="vertical"`) и компонента `TextView`.
-- **Выполненные требования**:
-  1. Корневой контейнер сконвертирован в `<LinearLayout android:orientation="vertical">`.
-  2. **Первый `TextView`**: содержит строку с ФИО и группой студента.
-  3. **Второй `TextView`**: содержит четверостишье на русском языке.
-  4. **Третий `TextView`**: четверостишье, переведённое на английский язык, вынесено в строковый ресурс `res/values/strings.xml` (`@string/bears_poem_en`).
-- **Исходный код**:
-  - Activity: [`MainActivity.kt`](LinearLayout/app/src/main/java/com/example/linearlayout/MainActivity.kt)
-  - Разметка: [`activity_main.xml`](LinearLayout/app/src/main/res/layout/activity_main.xml)
-  - Ресурсы: [`strings.xml`](LinearLayout/app/src/main/res/values/strings.xml)
-
-### 3. Проект "Components" (Часть 3)
-- **Цель**: Использование компонентов `EditText`, `ImageView`, `Button` в `LinearLayout` с вертикальной ориентацией.
-- **Выполненные требования**:
-  1. Разметка построена на вертикальном `LinearLayout`.
-  2. **`EditText`**: ссылка на ресурс `@string/student_info`.
-  3. **`ImageView`**: отображает дефолтную иконку приложения (`@mipmap/ic_launcher_round`), центрирован по горизонтали (`android:layout_gravity="center_horizontal"`).
-  4. **`Button`**: полноширинная кнопка с текстом «ОК» (`@string/button_ok`).
-- **Исходный код**:
-  - Activity: [`MainActivity.kt`](Components/app/src/main/java/com/example/components/MainActivity.kt)
-  - Разметка: [`activity_main.xml`](Components/app/src/main/res/layout/activity_main.xml)
-  - Ресурсы: [`strings.xml`](Components/app/src/main/res/values/strings.xml)
+- **Проекты**:
+  - `FirstApp/`: Базовый шаблон *Empty Activity*.
+  - `LinearLayout/`: Вертикальная линейная компоновка `LinearLayout` с тремя компонентами `TextView`.
+  - `Components/`: Работа с `EditText`, `ImageView`, `Button` в `LinearLayout`.
 
 ---
 
@@ -84,17 +84,11 @@
 1. Откройте **Android Studio**.
 2. В главном окне выберите **Open** (или `File` → `Open...`).
 3. Укажите папку нужного проекта:
+   - `TipTime` (Лабораторная работа № 5 — Калькулятор чаевых)
+   - `ArtSpace` (Лабораторная работа № 5 — Галерея)
    - `Affirmations` (Лабораторная работа № 4)
-   - `FirstApp`, `LinearLayout` или `Components` (Лабораторная работа № 1)
+   - `FirstApp`, `LinearLayout`, `Components` (Лабораторная работа № 1)
 4. Дождитесь синхронизации Gradle (Gradle Sync).
 5. Для сборки нажмите `Ctrl + F9` (`Build` → `Make Project`).
 6. Для запуска нажмите зелёную кнопку **Run** (`Shift + F10`) и выберите устройство/эмулятор (AVD).
-
-## Сборка через командную строку (CLI)
-
-В папке любого проекта выполните:
-```powershell
-.\gradlew.bat assembleDebug
-```
-Собранный файл будет находиться по пути:
-`app/build/outputs/apk/debug/app-debug.apk`
+7. Для запуска Unit-тестов в `TipTime` щелкните правой кнопкой мыши по файлу `TipCalculatorTests` и выберите **Run 'TipCalculatorTests'**.
