@@ -32,10 +32,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.artspace.ui.ArtSpaceViewModel
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -148,28 +148,17 @@ fun NavigationButtons(
 }
 
 /**
- * Главный экран приложения ArtSpace с адаптацией под широкий и портретный экран
+ * Главный экран приложения ArtSpace с архитектурой MVVM + UDF (Лабораторная № 6)
  */
 @Composable
-fun ArtSpaceApp() {
-    var currentArtwork by remember { mutableIntStateOf(1) }
+fun ArtSpaceApp(
+    viewModel: ArtSpaceViewModel = viewModel()
+) {
+    val uiState by viewModel.uiState.collectAsState()
+    val artwork = uiState.currentArtwork
 
-    // Конструкция when для выбора текущей картины (Рис. 4.7)
-    val (imageRes, titleRes, artistRes) = when (currentArtwork) {
-        1 -> Triple(R.drawable.mona_lisa, R.string.artwork1_title, R.string.artwork1_artist)
-        2 -> Triple(R.drawable.starry_night, R.string.artwork2_title, R.string.artwork2_artist)
-        3 -> Triple(R.drawable.the_scream, R.string.artwork3_title, R.string.artwork3_artist)
-        4 -> Triple(R.drawable.the_wave, R.string.artwork4_title, R.string.artwork4_artist)
-        else -> Triple(R.drawable.mona_lisa, R.string.artwork1_title, R.string.artwork1_artist)
-    }
-
-    val onPrevious: () -> Unit = {
-        currentArtwork = if (currentArtwork > 1) currentArtwork - 1 else 4
-    }
-
-    val onNext: () -> Unit = {
-        currentArtwork = if (currentArtwork < 4) currentArtwork + 1 else 1
-    }
+    val onPrevious: () -> Unit = { viewModel.previousArtwork() }
+    val onNext: () -> Unit = { viewModel.nextArtwork() }
 
     BoxWithConstraints(
         modifier = Modifier
@@ -190,8 +179,8 @@ fun ArtSpaceApp() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ArtworkWall(
-                    imageRes = imageRes,
-                    titleRes = titleRes,
+                    imageRes = artwork.imageRes,
+                    titleRes = artwork.titleRes,
                     modifier = Modifier
                         .weight(1.2f)
                         .fillMaxHeight(0.85f)
@@ -202,8 +191,8 @@ fun ArtSpaceApp() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     ArtworkDescriptor(
-                        titleRes = titleRes,
-                        artistRes = artistRes
+                        titleRes = artwork.titleRes,
+                        artistRes = artwork.artistRes
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     NavigationButtons(
@@ -223,16 +212,16 @@ fun ArtSpaceApp() {
             ) {
                 Spacer(modifier = Modifier.height(8.dp))
                 ArtworkWall(
-                    imageRes = imageRes,
-                    titleRes = titleRes,
+                    imageRes = artwork.imageRes,
+                    titleRes = artwork.titleRes,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(380.dp)
                 )
                 Spacer(modifier = Modifier.height(24.dp))
                 ArtworkDescriptor(
-                    titleRes = titleRes,
-                    artistRes = artistRes
+                    titleRes = artwork.titleRes,
+                    artistRes = artwork.artistRes
                 )
                 Spacer(modifier = Modifier.height(24.dp))
                 NavigationButtons(
