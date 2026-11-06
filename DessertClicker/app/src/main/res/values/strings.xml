@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Dessert Clicker</string>
+    <string name="dessert_sold">Dessert sold</string>
+    <string name="desserts_sold">Desserts Sold: %d</string>
+    <string name="total_revenue">Total Revenue: $%d</string>
+    <string name="share">Share</string>
+    <string name="share_text">I have sold %1$d desserts and made $%2$d in Dessert Clicker!</string>
+</resources>
